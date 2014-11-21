@@ -12,4 +12,4 @@ RUN apt-get update && apt-get install -y \
   erlang \
   erlang-base-hipe
 
-CMD ["erl"]
+ENTRYPOINT ["erl"]
