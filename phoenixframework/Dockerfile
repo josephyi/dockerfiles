@@ -4,11 +4,13 @@ MAINTAINER Joseph Yi <joe@josephyi.com>
 
 RUN apt-get install git -y
 
-WORKDIR /tmp
+WORKDIR /
 RUN git clone https://github.com/phoenixframework/phoenix.git
-WORKDIR /tmp/phoenix
+WORKDIR /phoenix
 RUN git checkout v0.6.2
 RUN mix do local.hex --force, local.rebar, deps.get, compile
-  
-VOLUME ["/phoenix"]
-WORKDIR /phoenix
+
+EXPOSE 4000
+
+VOLUME ["/app"]
+WORKDIR /app
