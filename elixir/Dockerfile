@@ -10,4 +10,7 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get install -y \
   elixir
   
+VOLUME ["/elixir"]
+WORKDIR /elixir  
+  
 CMD ["iex"]
