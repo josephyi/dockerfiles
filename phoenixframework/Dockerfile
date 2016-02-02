@@ -1,7 +1,8 @@
-FROM msaraiva/elixir-dev:1.2.1
+FROM msaraiva/elixir-dev:latest
 
 MAINTAINER Joseph Yi <joe@josephyi.com>
 
+# Borrowed node install from mhart/alpine-node
 ENV VERSION=v5.5.0 NPM_VERSION=3
 RUN apk add --update curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
   curl -sSL https://nodejs.org/dist/${VERSION}/node-${VERSION}.tar.gz | tar -xz && \
