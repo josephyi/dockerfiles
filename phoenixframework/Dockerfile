@@ -1,10 +1,10 @@
-FROM msaraiva/elixir-dev:latest
+FROM josephyi/elixir-dev:elixir-1.3.0 
 
 MAINTAINER Joseph Yi <joe@josephyi.com>
 
 # Borrowed node install from smebberson/alpine-nodejs
-ENV NODE_VERSION=v5.5.0 NPM_VERSION=3
-RUN apk add --update git curl make gcc g++ python linux-headers libgcc libstdc++ binutils-gold && \
+ENV NODE_VERSION=v6.2.2 NPM_VERSION=3.9.5
+RUN apk add --update inotify-tools git curl make gcc g++ python linux-headers libgcc libstdc++ binutils-gold && \
     curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
     cd /node-${NODE_VERSION} && \
     ./configure --prefix=/usr --without-snapshot --fully-static && \
@@ -17,10 +17,10 @@ RUN apk add --update git curl make gcc g++ python linux-headers libgcc libstdc++
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-WORKDIR /
-#RUN mix do local.hex local.rebar, deps.get, compile
-
-RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
+ENV PHOENIX_VERSION=1.1.4
+RUN mix local.hex --force && \
+    mix local.rebar --force
+RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-${PHOENIX_VERSION}.ez --force
 
 EXPOSE 4000
 
