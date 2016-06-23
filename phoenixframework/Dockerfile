@@ -17,7 +17,7 @@ RUN apk add --update inotify-tools git curl make gcc g++ python linux-headers li
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-ENV PHOENIX_VERSION=1.1.4
+ENV PHOENIX_VERSION=1.2.0
 RUN mix local.hex --force && \
     mix local.rebar --force
 RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-${PHOENIX_VERSION}.ez --force
