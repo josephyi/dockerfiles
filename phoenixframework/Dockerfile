@@ -1,4 +1,4 @@
-FROM josephyi/elixir-dev:elixir-1.3.0 
+FROM josephyi/elixir-dev:elixir-1.3.1
 
 MAINTAINER Joseph Yi <joe@josephyi.com>
 
