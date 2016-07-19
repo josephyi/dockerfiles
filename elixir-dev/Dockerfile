@@ -3,7 +3,7 @@ FROM msaraiva/erlang:18.1
 # waiting for Marlus Saraiva <marlus.saraiva@gmail.com>
 MAINTAINER Joseph Yi <joe@josephyi.com>
 
-ENV ELIXIR_VERSION 1.3.1
+ENV ELIXIR_VERSION 1.3.2
 
 RUN apk --update add --virtual build-dependencies wget ca-certificates && \
     wget --no-check-certificate https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip && \
