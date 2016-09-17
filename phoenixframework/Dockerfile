@@ -3,11 +3,11 @@ FROM josephyi/elixir-dev:1.0.4
 MAINTAINER Joseph Yi <joe@josephyi.com>
 
 # Borrowed node install from smebberson/alpine-nodejs
-ENV NODE_VERSION=v6.2.2 NPM_VERSION=3.9.5
+ENV NODE_VERSION=v6.6.0 NPM_VERSION=3.9.6
 RUN apk add --update inotify-tools git curl make gcc g++ python linux-headers libgcc libstdc++ binutils-gold && \
     curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
     cd /node-${NODE_VERSION} && \
-    ./configure --prefix=/usr --without-snapshot --fully-static && \
+    ./configure --prefix=/usr --without-snapshot && \
     make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
     make install && \
     cd / && \
