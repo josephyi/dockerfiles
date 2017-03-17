@@ -1,7 +1,7 @@
 FROM bitwalker/alpine-erlang:latest
 
 MAINTAINER Joseph Yi <joe@josephyi.com>
-a
+
 ENV ELIXIR_VERSION 1.4.2
 
 RUN apk --update add --virtual build-dependencies wget ca-certificates && \
