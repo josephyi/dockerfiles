@@ -15,10 +15,6 @@ RUN apk --update add --virtual build-dependencies wget ca-certificates && \
 
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
-RUN apk --update add erlang-crypto erlang-syntax-tools erlang-parsetools erlang-inets erlang-ssl erlang-public-key erlang-eunit \
-    erlang-asn1 erlang-sasl erlang-erl-interface erlang-dev wget git && \
-    rm -rf /var/cache/apk/*
-
 RUN mix local.hex --force && \
     mix local.rebar --force
 
