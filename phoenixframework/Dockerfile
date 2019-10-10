@@ -3,7 +3,7 @@ FROM josephyi/elixir-dev:latest
 MAINTAINER Joseph Yi <joe@josephyi.com>
 
 # Borrowed node install from smebberson/alpine-nodejs
-ENV NODE_VERSION=v7.7.3 NPM_VERSION=4.4.4
+ENV NODE_VERSION=v10.16.3 NPM_VERSION=6.9.0
 RUN mkdir -p /etc/ssl/certs && apk -U add ca-certificates && update-ca-certificates
 RUN apk add --update inotify-tools git curl make gcc g++ python linux-headers libgcc libstdc++ binutils-gold && \
     cd / && \
